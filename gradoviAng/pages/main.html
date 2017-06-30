@@ -1,0 +1,46 @@
+<div ng-controller="mainCtrl">
+
+
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+       <a href="index.html" class="navbar-brand">Pogodi gradove</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="wrapp">
+           <div class="form">
+              <p class="in" id="ov">OBLAST: <span id="ob">{{gameData.oblast | uppercase}}</span></p>
+              <p class="in" id="pv">VREME: <span  id="vr">{{count}}</span>s</p>
+               <form >
+
+               <input name="name" type="text" class="form-control" id="inputName" placeholder="Ime grada"  ng-model="name" ng-keyup="complete(name)"><br>
+               <ul class="list-group" id="serS">
+                 <li class="list-group-item" ng-if="name.length>1"  ng-repeat="optD in optData | filter : name | orderBy : name.startWith ">{{optD}}</li>
+               </ul>
+               <input id="posalji" type="submit" ng-click="addName()" name="sub" value="Dodaj u listu" class="form-control btn btn-primary">
+               </form>
+           </div>
+          <div class="lista">
+             <p>lista ubačenih gradova:</p>
+             <div id="display">
+                <div ng-repeat="arr in arrName">
+                  <p style="color: white"class="rep">{{arr}} <button  class="btn btn-primary" type="button" ng-click="delArr($index)">x</button></p>
+                </div>
+
+
+
+            </div><br>
+            <a href="#/rez"   id="kraj"  class="form-control btn btn-primary" type="button" ng-click="sendData()" name="button"  >Završi igru</a>
+          </div>
+
+       </div>
+      </div>
+     </div>
+   </div>
+
+
+</div>
