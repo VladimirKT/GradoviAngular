@@ -75,6 +75,7 @@ button .btn  {
   height: 50px;
   width: 0px;
   background-color: blue;
+  transition-duration: 5s;
 }
 
 #serS {
