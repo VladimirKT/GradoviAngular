@@ -9,12 +9,11 @@ angular.module('mainController',['dbServices'])
             if($scope.count > 0){
               $scope.count--;
             }else{
-              $scope.sendData();
               $interval.cancel(stop);
               $location.path("/rez");
             }
            },1000);
-
+             stop.then($scope.sendData());
               },function(err){
             console.log(err.status);
         })
